@@ -1,0 +1,121 @@
+.TH kde-bak 1 "December 2025" "kde-bak 1.0.0" "User Commands"
+.SH NAME
+kde-bak \- backup and restore KDE Plasma settings and layouts
+.SH SYNOPSIS
+.B kde-bak
+.B backup
+.RI [ --dest " DIR" ]
+.RI [ options ]
+.PP
+.B kde-bak
+.B restore
+.BI --archive " FILE.tar.gz"
+.RI [ options ]
+.PP
+.B kde-bak
+.B list
+.RI [ --dest " DIR" ]
+.PP
+.B kde-bak
+.B verify
+.BI --archive " FILE.tar.gz"
+.PP
+.B kde-bak
+.BR -h | --help
+.PP
+.B kde-bak
+.B --version
+.SH DESCRIPTION
+.B kde-bak
+backs up and restores KDE Plasma configuration, including panel/widget
+layouts and common KDE configuration/state files. Backups are stored as a
+timestamped directory and a compressed archive.
+.SH MODES
+.TP
+.B backup
+Create a new backup and archive.
+.TP
+.B restore
+Restore from a previously created archive.
+.TP
+.B list
+List backup archives in the destination directory.
+.TP
+.B verify
+Verify archive integrity by listing contents.
+.SH OPTIONS
+.TP
+.BI --dest " DIR"
+Backup destination directory. Default:
+.IR ~/.local/state/kde-bak/ .
+.TP
+.BI --archive " FILE"
+Archive file to restore/verify.
+.TP
+.B --dry-run
+Show actions without making changes.
+.TP
+.BR -v ", " --verbose
+Print executed commands.
+.TP
+.BR -q ", " --quiet
+Errors only.
+.TP
+.BI --log " FILE"
+Write output to the given log file.
+.TP
+.B --no-kscreen
+Exclude KScreen monitor layout files.
+.TP
+.B --no-snapshot
+Do not create a safety backup before restore.
+.TP
+.B --no-restart
+Do not restart plasmashell after restore.
+.SH FILES
+.TP
+.I ~/.config/plasma-org.kde.plasma.desktop-appletsrc
+Primary Plasma layout configuration (panels/widgets/desktops).
+.TP
+.I ~/.local/state/kde-bak/logs/
+Default log directory.
+.SH EXIT STATUS
+.TP
+0
+Success.
+.TP
+2
+Usage error.
+.TP
+3
+I/O error.
+.TP
+4
+Missing dependency.
+.TP
+5
+Archive error.
+.TP
+6
+Restore error.
+.SH EXAMPLES
+Backup:
+.PP
+.nf
+kde-bak backup
+.fi
+.PP
+Backup without monitor layouts:
+.PP
+.nf
+kde-bak backup --no-kscreen
+.fi
+.PP
+Restore:
+.PP
+.nf
+kde-bak restore --archive /mnt/backup/kde/kde-bak-2025-12-20_14-03-11.tar.gz
+.fi
+.SH AUTHOR
+Someone who believes software should document itself.
+

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=KDE Backup (kde-bak)
+Comment=Backup and restore KDE Plasma desktop settings
+Exec=kde-bak backup
+Icon=preferences-system
+Terminal=true
+Categories=System;Settings;Utility;
+Keywords=KDE;Plasma;Backup;Restore;Desktop;
+
