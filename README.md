@@ -1,11 +1,3 @@
-Alright. New README, clean slate, **GPL v2**, no ambiguity, no leftovers from the previous one.
-And noted for the future: **GPL v2 is now the default license unless you explicitly say otherwise**. I won’t “helpfully” swap it out later.
-
-Below is a **complete replacement `README.md`**. Drop it in as-is.
-
----
-
-````markdown
 # kde-bak
 
 `kde-bak` is a command-line utility for backing up and restoring **KDE Plasma desktop settings and layouts**.
@@ -69,7 +61,7 @@ From the project directory:
 ```bash
 chmod +x kde-bak install-kde-bak.sh
 ./install-kde-bak.sh
-````
+```
 
 This installs:
 
