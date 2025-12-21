@@ -266,6 +266,15 @@ verify_archive() {
 extract_archive_to_tmp() {
   need_cmd tar
   local archive="$1"
+  if (( DRY_RUN )); then
+    local top
+    top="$(tar -tzf "$archive" 2>/dev/null | head -n 1 || true)"
+    top="${top%%/*}"
+    [[ -n "$top" ]] || die "$E_ARCHIVE" "Invalid archive format (missing timestamp directory)"
+    # Use a placeholder path so later dry-run commands look realistic.
+    echo "(dry-run)|/tmp/${APP}-dry-run/${top}"
+    return 0
+  fi
   local tmp
   tmp="$(mktemp -d)"
   run "tar -xzf '$archive' -C '$tmp'"
@@ -379,4 +388,3 @@ main() {
 }
 
 main "$@"
-
