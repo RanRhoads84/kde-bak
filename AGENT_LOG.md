@@ -21,3 +21,6 @@ Log of agent work in this repo. Append new entries; do not rewrite history.
 - Task: normalize `.gitignore` and add `*.log` ignores.
 - Files: `.gitignore`, `AGENT_LOG.md`.
 - Tests: not run (gitignore-only change).
+- Task: ignore local `.state/` artifacts.
+- Files: `.gitignore`, `AGENT_LOG.md`.
+- Tests: not run (gitignore-only change).

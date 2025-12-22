@@ -5,3 +5,4 @@
 *.rpm
 *.pkg.tar.*
 *.log
+.state/
