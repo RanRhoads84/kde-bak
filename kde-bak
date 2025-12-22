@@ -185,6 +185,24 @@ backup_curated_rsync() {
   run "rsync -a --relative $rsync_inc --exclude='*' '$src/' '$outdir/home/' >/dev/null"
 }
 
+backup_asset_dirs() {
+  local outdir="$1"
+
+  local asset_dirs=(
+    "$HOME/.local/share/wallpapers"
+    "$HOME/.local/share/icons"
+    "$HOME/.local/share/plasma"
+    "$HOME/.local/share/themes"
+    "$HOME/.local/share/plasmoids"
+  )
+
+  info "Saving user asset directories (wallpapers/icons/themes)..."
+  for src in "${asset_dirs[@]}"; do
+    [[ -d "$src" ]] || continue
+    run "rsync -a --relative '$src/' '$outdir/home/'"
+  done
+}
+
 make_backup() {
   local dest="${DEST_DIR:-$DEFAULT_DEST}"
   local stamp
@@ -221,6 +239,9 @@ META"
   backup_curated_rsync "$HOME/.config" "$outdir"
   backup_curated_rsync "$HOME/.local/share" "$outdir"
   backup_curated_rsync "${XDG_STATE_HOME:-$HOME/.local/state}" "$outdir"
+
+  # Save user asset directories so restores don't reference missing files
+  backup_asset_dirs "$outdir"
 
   local extras=(
     "$HOME/.config/kglobalshortcutsrc"

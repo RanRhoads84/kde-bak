@@ -27,3 +27,10 @@ Log of agent work in this repo. Append new entries; do not rewrite history.
 - Task: add issue for missing asset backups (wallpapers/icons/themes).
 - Files: `ISSUES.md`, `AGENT_LOG.md`.
 - Tests: not run (issue-only change).
+
+- Task: implement asset backups for wallpapers/icons/themes so restores include user assets.
+- Files: `kde-bak`, `ISSUES.md`, `AGENT_LOG.md`.
+- Tests: run `XDG_STATE_HOME=$PWD/.state ./kde-bak backup --dry-run` to validate behavior.
+
+- Result: dry-run executed; rsync was invoked for the following asset dirs: `.local/share/wallpapers`, `.local/share/icons`, `.local/share/plasma`.
+- Archive (dry-run): `.state/kde-bak/kde-bak-$(timestamp).tar.gz` would be created under the destination.

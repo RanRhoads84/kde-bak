@@ -15,7 +15,7 @@ Purpose: safely extend or fix the Bash CLI while keeping user-facing docs, man p
 3. Keep `--dry-run` safe by routing external commands through `run`.
 4. Update docs (`README.md`, `kde-bak.1`) to match behavior changes.
 5. If you add a dependency, update `debian/control`, `kde-bak.spec`, and `PKGBUILD`.
-6. Append a brief entry to `AGENT_LOG.md` (date, task, files, tests).
+6. Append a brief entry to `AGENT_LOG.md` (date, task, files, tests). Do not rewrite or delete prior entries.
 7. Commit completed work with a clear message; open an issue for follow-ups if needed.
 
 ## Validation
