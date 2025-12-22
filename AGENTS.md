@@ -20,7 +20,7 @@ This repository ships a single Bash CLI utility that backs up and restores KDE P
 - Before starting work, switch to `development` with `git switch development` (or `git checkout development`).
 - If the branch is missing or switching would disturb unknown changes, stop and ask the user.
 - Keep `AGENT_LOG.md` up to date with a dated entry of work tried/completed, files touched, and tests run.
-- Append-only: never rewrite or remove prior entries in `AGENT_LOG.md`; always add new entries under the latest date.
+- Append-only: never rewrite or remove prior entries in `AGENT_LOG.md`; always add new entries under the latest date and include a timestamp (local time).
 - Make git commits for completed, coherent changes; keep scopes tight and messages clear.
 - If you identify follow-ups or out-of-scope work, create an issue in the repo's tracker; if no tracker is available, add a note to `ISSUES.md`.
 - Use `ISSUES.md` as the default local tracker when no external issue system is available.
