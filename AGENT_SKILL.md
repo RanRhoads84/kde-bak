@@ -7,6 +7,7 @@ Purpose: safely extend or fix the Bash CLI while keeping user-facing docs, man p
 ## Start here
 - Switch to `development` before making changes: `git switch development` (or `git checkout development`).
 - If the branch is missing or switching risks unknown changes, stop and ask the user.
+- If multiple git remotes are configured, pull from and push to all of them.
 
 ## Core workflow
 1. Read `kde-bak` and confirm existing behavior.

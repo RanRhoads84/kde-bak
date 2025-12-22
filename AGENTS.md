@@ -23,6 +23,7 @@ This repository ships a single Bash CLI utility that backs up and restores KDE P
 - Make git commits for completed, coherent changes; keep scopes tight and messages clear.
 - If you identify follow-ups or out-of-scope work, create an issue in the repo's tracker; if no tracker is available, add a note to `ISSUES.md`.
 - Use `ISSUES.md` as the default local tracker when no external issue system is available.
+- Repos may have multiple git remotes; always pull from and push to all configured remotes.
 
 ## Runtime dependencies
 - Required: `bash`, `rsync`, `tar`.

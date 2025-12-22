@@ -12,3 +12,6 @@ Log of agent work in this repo. Append new entries; do not rewrite history.
 - Task: point workflow expectations at `ISSUES.md`.
 - Files: `AGENTS.md`, `AGENT_LOG.md`.
 - Tests: not run (docs-only change).
+- Task: add multi-remote pull/push guidance.
+- Files: `AGENTS.md`, `AGENT_SKILL.md`, `AGENT_LOG.md`.
+- Tests: not run (docs-only change).
