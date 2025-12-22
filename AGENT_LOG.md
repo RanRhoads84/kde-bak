@@ -18,3 +18,6 @@ Log of agent work in this repo. Append new entries; do not rewrite history.
 - Task: run validation checks after doc updates.
 - Files: `AGENT_LOG.md`.
 - Tests: `bash -n kde-bak`, `bash -n install-kde-bak.sh`, `./kde-bak --help`, `XDG_STATE_HOME=$PWD/.state ./kde-bak backup --dry-run`.
+- Task: normalize `.gitignore` and add `*.log` ignores.
+- Files: `.gitignore`, `AGENT_LOG.md`.
+- Tests: not run (gitignore-only change).
