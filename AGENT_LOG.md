@@ -34,3 +34,8 @@ Log of agent work in this repo. Append new entries; do not rewrite history.
 
 - Result: dry-run executed; rsync was invoked for the following asset dirs: `.local/share/wallpapers`, `.local/share/icons`, `.local/share/plasma`.
 - Archive (dry-run): `.state/kde-bak/kde-bak-$(timestamp).tar.gz` would be created under the destination.
+
+- Time: 18:33:28 -0500
+- Task: change default backup/log destination to `$HOME/bak` when `XDG_STATE_HOME` is unset.
+- Files: `kde-bak`, `AGENT_LOG.md`.
+- Tests: not run (user-directed change).

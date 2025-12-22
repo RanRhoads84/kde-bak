@@ -6,8 +6,9 @@ set -euo pipefail
 APP="kde-bak"
 VERSION="1.0.0"
 
-DEFAULT_DEST="${XDG_STATE_HOME:-$HOME/.local/state}/${APP}"
-DEFAULT_LOG_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/${APP}/logs"
+# Set Save location
+DEFAULT_DEST="${XDG_STATE_HOME:-$HOME/bak/}${APP}"
+DEFAULT_LOG_DIR="${XDG_STATE_HOME:-$HOME/bak}/${APP}/logs"
 
 # Exit codes
 E_USAGE=2
