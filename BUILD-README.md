@@ -70,10 +70,8 @@ including application logic, installer, manual page, and packaging metadata.
 ```markdown
 ## License
 
-MIT License.
+GNU 2
 
-Use it, modify it, ship it, automate it.
-Just keep it open source and keep the license.
 ```
 
 ---
