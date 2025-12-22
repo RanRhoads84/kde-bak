@@ -15,3 +15,6 @@ Log of agent work in this repo. Append new entries; do not rewrite history.
 - Task: add multi-remote pull/push guidance.
 - Files: `AGENTS.md`, `AGENT_SKILL.md`, `AGENT_LOG.md`.
 - Tests: not run (docs-only change).
+- Task: run validation checks after doc updates.
+- Files: `AGENT_LOG.md`.
+- Tests: `bash -n kde-bak`, `bash -n install-kde-bak.sh`, `./kde-bak --help`, `XDG_STATE_HOME=$PWD/.state ./kde-bak backup --dry-run`.
