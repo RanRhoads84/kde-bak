@@ -11,6 +11,7 @@ Format:
 - [ ] YYYY-MM-DD | Title | Owner | Context | Files/Tests
 
 ## Open
+- [ ] 2025-12-22 | Add asset backup for wallpapers/icons/themes | tbd | Backup omits asset directories so restores may reference missing files | `kde-bak`
 - [ ] 2025-12-22 | Example issue title | @owner | Brief context | Files/tests here
 
 ## Closed

@@ -24,3 +24,6 @@ Log of agent work in this repo. Append new entries; do not rewrite history.
 - Task: ignore local `.state/` artifacts.
 - Files: `.gitignore`, `AGENT_LOG.md`.
 - Tests: not run (gitignore-only change).
+- Task: add issue for missing asset backups (wallpapers/icons/themes).
+- Files: `ISSUES.md`, `AGENT_LOG.md`.
+- Tests: not run (issue-only change).
