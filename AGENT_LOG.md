@@ -44,3 +44,8 @@ Log of agent work in this repo. Append new entries; do not rewrite history.
 - Task: locate backup destination defaults in `kde-bak`.
 - Files: `kde-bak`, `AGENT_LOG.md`.
 - Tests: not run (info-only request).
+
+- Time: 21:35:07 -0500
+- Task: document git usage rules in `AGENTS.md`.
+- Files: `AGENTS.md`, `AGENT_LOG.md`.
+- Tests: not run (docs-only change).

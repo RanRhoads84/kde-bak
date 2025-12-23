@@ -26,6 +26,13 @@ This repository ships a single Bash CLI utility that backs up and restores KDE P
 - Use `ISSUES.md` as the default local tracker when no external issue system is available.
 - Repos may have multiple git remotes; always pull from and push to all configured remotes.
 
+## Git usage rules
+- Never use destructive commands like `git reset --hard` or `git checkout --` unless the user explicitly asks.
+- Do not amend commits unless explicitly requested.
+- If you notice unexpected changes you did not make, stop and ask the user how to proceed.
+- Do not revert or overwrite unrelated changes; work alongside them.
+- When work is complete, `git pull` all configured remotes before pushing, and then push to all remotes.
+
 ## Runtime dependencies
 - Required: `bash`, `rsync`, `tar`.
 - Optional (used when available): `kquitapp6` or `kquitapp5`, `plasmashell`, `kde-config`.
