@@ -6,9 +6,10 @@ set -euo pipefail
 APP="kde-bak"
 VERSION="1.0.0"
 
-# Set Save location
-DEFAULT_DEST="${XDG_STATE_HOME:-$HOME/bak/}${APP}"
-DEFAULT_LOG_DIR="${XDG_STATE_HOME:-$HOME/bak}/${APP}/logs"
+# Set Save location (default: inside the app directory)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
+DEFAULT_DEST="${SCRIPT_DIR}/${APP}/backup"
+DEFAULT_LOG_DIR="${DEFAULT_DEST}/logs"
 
 # Exit codes
 E_USAGE=2
@@ -183,7 +184,7 @@ backup_curated_rsync() {
     rsync_inc+=" --include='$i'"
   done
 
-  run "rsync -a --relative $rsync_inc --exclude='*' '$src/' '$outdir/home/' >/dev/null"
+  run "rsync -a --relative --exclude='**/backup/**' $rsync_inc --exclude='*' '$src/' '$outdir/home/' >/dev/null"
 }
 
 backup_asset_dirs() {
@@ -200,7 +201,7 @@ backup_asset_dirs() {
   info "Saving user asset directories (wallpapers/icons/themes)..."
   for src in "${asset_dirs[@]}"; do
     [[ -d "$src" ]] || continue
-    run "rsync -a --relative '$src/' '$outdir/home/'"
+    run "rsync -a --relative --exclude='**/backup/**' '$src/' '$outdir/home/'"
   done
 }
 
@@ -324,7 +325,35 @@ snapshot_before_restore() {
 
 restore_archive() {
   need_cmd rsync
-  [[ -n "$ARCHIVE" ]] || die "$E_USAGE" "restore requires --archive FILE"
+
+  if [[ -z "$ARCHIVE" ]]; then
+    local dest="${DEST_DIR:-$DEFAULT_DEST}"
+    [[ -d "$dest" ]] || die "$E_IO" "Destination does not exist: $dest"
+
+    local recent
+    recent="$(ls -1t "$dest"/${APP}-*.tar.gz 2>/dev/null | head -n 1 || true)"
+    if [[ -z "$recent" ]]; then
+      die "$E_ARCHIVE" "No backups found in: $dest"
+    fi
+
+    say "No --archive given. Choose restore source:"
+    say "  1) Most recent: ${recent}"
+    say "  2) Specify path"
+    say "  3) Cancel"
+
+    if (( DRY_RUN )); then
+      say "[dry-run] would restore: ${recent}"
+      ARCHIVE="$recent"
+    else
+      read -rp "Select option [1-3]: " opt
+      case "$opt" in
+        1|"") ARCHIVE="$recent" ;;
+        2) read -rp "Enter archive path: " ARCHIVE ;;
+        *) die "$E_USAGE" "Restore cancelled" ;;
+      esac
+    fi
+  fi
+
   [[ -f "$ARCHIVE" ]] || die "$E_ARCHIVE" "Archive not found: $ARCHIVE"
 
   verify_archive
