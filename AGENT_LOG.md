@@ -39,3 +39,8 @@ Log of agent work in this repo. Append new entries; do not rewrite history.
 - Task: change default backup/log destination to `$HOME/bak` when `XDG_STATE_HOME` is unset.
 - Files: `kde-bak`, `AGENT_LOG.md`.
 - Tests: not run (user-directed change).
+
+- Time: 21:19:25 -0500
+- Task: locate backup destination defaults in `kde-bak`.
+- Files: `kde-bak`, `AGENT_LOG.md`.
+- Tests: not run (info-only request).
